@@ -1,7 +1,6 @@
 package com.h2;
 
 import java.time.LocalDate;
-import java.time.Year;
 import java.time.YearMonth;
 
 public class SavingsCalculator {

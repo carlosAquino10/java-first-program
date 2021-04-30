@@ -1,30 +1,37 @@
-public class Finance<v3> {//teste
+import com.h2.BestLoanRates;
+import com.h2.MortgageCalculator;
+import com.h2.SavingsCalculator;
+
+import java.util.Arrays;
+import java.util.Map;
+
+public class Finance {
     public static final String BEST_LOAN_RATES = "bestLoanRates";
-    public static final String SAVINGS_CALCULATOR = "savingCalculator";
+    public static final String SAVINGS_CALCULATOR = "savingsCalculator";
     public static final String MORTGAGE_CALCULATOR = "mortgageCalculator";
 
-    public static final  Map <String, String> commandToUsage = Map.of(
-            BEST_LOAN_RATES, "usage: bestLoanRates" ,
-            SAVINGS_CALCULATOR, "usage: savingCalculator <credits separated by ','> <debits separated by ','> ",
+    public static final Map<String, String> commandsToUsage = Map.of(
+            BEST_LOAN_RATES, "usage: bestLoanRates",
+            SAVINGS_CALCULATOR, "usage: savingsCalculator <credits separated by ','> <debits separated by ','>",
             MORTGAGE_CALCULATOR, "usage: mortgageCalculator <loanAmount> <termInYears> <annualRate>"
     );
 
-    private static boolean  validateCommandArguments (String[] args) {
-        switch (args [0]) {
-            case BEST_LOAN_RATES :
+    private static boolean validateCommandArguments(String[] args) {
+        switch (args[0]) {
+            case BEST_LOAN_RATES:
                 return args.length == 1;
-            case SAVINGS_CALCULATOR :
+            case SAVINGS_CALCULATOR:
                 return args.length == 3;
-            case MORTGAGE_CALCULATOR :
+            case MORTGAGE_CALCULATOR:
                 return args.length == 4;
         }
-        return  false;
+        return false;
     }
 
     private static void executeCommand(String command, String[] arguments) {
         switch (command) {
             case BEST_LOAN_RATES:
-                System.out.sprintln("Finding best loan rates ...");
+                System.out.println("Finding best loan rates ...");
                 BestLoanRates.main(arguments);
                 return;
             case SAVINGS_CALCULATOR:
@@ -51,6 +58,6 @@ public class Finance<v3> {//teste
             return;
         }
 
-        executeCommand(command, Arrays.copyOfRange(args, from:1, args.length));
+        executeCommand(command, Arrays.copyOfRange(args, 1, args.length));
     }
 }
