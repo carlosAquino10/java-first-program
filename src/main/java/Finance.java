@@ -1,4 +1,4 @@
-public class Finance<v3> {
+public class Finance<v3> {//teste
     public static final String BEST_LOAN_RATES = "bestLoanRates";
     public static final String SAVINGS_CALCULATOR = "savingCalculator";
     public static final String MORTGAGE_CALCULATOR = "mortgageCalculator";
